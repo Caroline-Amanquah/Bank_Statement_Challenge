@@ -96,8 +96,7 @@ describe('BankAccount integration tests', () => {
 
 ## 4. Create Examples as Unit Tests
 
-_Create examples, where appropriate, of the behaviour of each relevant class at
-a more granular level of detail._
+_Create examples, where appropriate, of the behaviour of each relevant class._
 
 ```javascript
 describe('Transaction', () => {
@@ -146,9 +145,38 @@ describe('BankAccount', () => {
 });
 ```
 
-_Encode each example as a test. You can add to the above list as you go._
+## 5. Create Examples as Edge Case Tests
+```javascript
+describe('BankAccount error handling tests', () => {
+    let account;
+  
+    beforeEach(() => {
+      account = new BankAccount();
+    });
+  
 
-## 5. Implement the Behaviour
+    it("Should not allow deposit of negative amount", () => {
+        expect(() => account.deposit(-100, "11-01-2023")).toThrowError("Deposit in bank account has not been made");
+    });
+
+    it("Should not allow withdrawal of negative amount", () => {
+        expect(() => account.withdrawal(-100, "12-01-2023")).toThrowError("Withdrawal from bank account has not been made");
+    });
+
+    it("Should not allow withdrawal of an amount greater than the current balance", () => {
+        expect(() => account.withdrawal(3000, "15-01-2023")).toThrowError("Amount greater than the current balance");
+    });
+
+    it("Should display 'No transactions' when there are no transactions", () => {
+        const account = new BankAccount();
+        console.log = jest.fn();
+        account.statement();
+        expect(console.log).toHaveBeenCalledWith("No transactions");
+    });
+});
+```
+
+## 6. Implement the Behaviour
 
 _After each test you write, follow the test-driving process of red, green,
 refactor to implement the behaviour._
