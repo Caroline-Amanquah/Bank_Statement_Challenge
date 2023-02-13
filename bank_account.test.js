@@ -34,4 +34,10 @@ describe("BankAccount", () => {
         expect(account.transactions).toHaveLength(1);
         expect(account.transactions[0].amount).toBe(1000);
     });
+    it("should withdraw a given amount from the account", () => {
+        account.deposit(1000, "10-01-2023");
+        account.withdrawal(500, "11-01-2023");
+        expect(account.transactions).toHaveLength(2);
+        expect(account.transactions[1].amount).toBe(-500);
+    });
 });
