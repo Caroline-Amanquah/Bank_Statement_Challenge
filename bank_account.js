@@ -11,6 +11,9 @@ class BankAccount {
         this.transactions = [];
     }
     deposit(amount, date) {
+        if (amount < 0) {
+            throw new Error("Deposit in bank account has not been made");
+        }
         let balance = this.transactions.length > 0 ? this.transactions[this.transactions.length - 1].balance + amount : amount;
         this.transactions.push(new Transaction(date, amount, balance));
     }

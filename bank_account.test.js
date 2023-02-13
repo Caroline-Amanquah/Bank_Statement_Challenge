@@ -77,3 +77,15 @@ describe("BankAccount integration tests", () => {
         expect(account.transactions[1].balance).toBe(500);
     });
 });
+
+describe("BankAccount Edge Case Tests", () => {
+    let account;
+  
+    beforeEach(() => {
+      account = new BankAccount();
+    });
+  
+    it("Bank account user should be informed when no money has been deposited after attempt", () => {
+      expect(() => account.deposit(-100, "11-01-2023")).toThrowError("Deposit in bank account has not been made");
+    });
+});
