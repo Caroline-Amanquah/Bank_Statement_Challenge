@@ -77,6 +77,23 @@ describe("BankAccount integration tests", () => {
   beforeEach(() => {
     account = new BankAccount();
   });
+  it("displays the date, credit, debit and balance of the account on a statement", () => {
+
+        account.deposit(1000, "10-01-2023");
+        account.deposit(2000, "13-01-2023");
+        account.withdrawal(500, "14-01-2023");
+
+        const statementSpy = jest.spyOn(console, "log").mockImplementation();
+    
+        account.statement();
+    
+        expect(statementSpy).toHaveBeenCalledWith("date || credit || debit || balance");
+        expect(statementSpy).toHaveBeenCalledWith("14-01-2023 ||  || 500.00 || 2500.00");
+        expect(statementSpy).toHaveBeenCalledWith("13-01-2023 || 2000.00 ||  || 3000.00");
+        expect(statementSpy).toHaveBeenCalledWith("10-01-2023 || 1000.00 ||  || 1000.00");
+    
+        statementSpy.mockRestore();
+  });
 
   it("should deposit a given amount to the account and update the balance", () => {
     account.deposit(1000, "10-01-2023");

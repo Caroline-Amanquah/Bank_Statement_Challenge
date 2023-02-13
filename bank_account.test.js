@@ -40,6 +40,14 @@ describe("BankAccount class", () => {
         expect(account.transactions).toHaveLength(2);
         expect(account.transactions[1].amount).toBe(-500);
     });
+});
+
+describe("BankAccount integration tests", () => {
+    let account;
+      
+    beforeEach(() => {
+        account = new BankAccount();
+    });
     it("displays the date, credit, debit and balance of the account on a statement", () => {
 
         account.deposit(1000, "10-01-2023");
@@ -56,5 +64,16 @@ describe("BankAccount class", () => {
         expect(statementSpy).toHaveBeenCalledWith("10-01-2023 || 1000.00 ||  || 1000.00");
     
         statementSpy.mockRestore();
+    });
+    it('should deposit a given amount to the account and update the balance', () => {
+        account.deposit(1000, '10-01-2023');
+        expect(account.transactions[0].balance).toBe(1000);
+        account.deposit(2000, '11-01-2023');
+        expect(account.transactions[1].balance).toBe(3000);
+    });
+    it('should withdraw a given amount from the account and update the balance', () => {
+        account.deposit(1000, '10-01-2023');
+        account.withdrawal(500, '11-01-2023');
+        expect(account.transactions[1].balance).toBe(500);
     });
 });
