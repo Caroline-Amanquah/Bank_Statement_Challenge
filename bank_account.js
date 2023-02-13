@@ -18,10 +18,20 @@ class BankAccount {
         this.transactions.push(new Transaction(date, amount, balance));
     }
     withdrawal(amount, date) {
+        if (amount <= 0) {
+            throw new Error("Withdrawal from bank account has not been made");
+        }
+        if (this.transactions.length === 0) {
+            throw new Error("Amount greater than the current balance");
+        }
         let balance = this.transactions[this.transactions.length - 1].balance - amount;
         this.transactions.push(new Transaction(date, -amount, balance));
     }
     statement() {
+        if (!this.transactions.length) {
+            console.log("No transactions");
+            return;
+        }
         console.log("date || credit || debit || balance");
         for (let i = this.transactions.length - 1; i >= 0; i--) {
             let credit = this.transactions[i].amount >= 0 ? this.transactions[i].amount.toFixed(2) : "";
