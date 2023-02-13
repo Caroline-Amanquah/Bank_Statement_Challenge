@@ -77,6 +77,7 @@ describe("BankAccount integration tests", () => {
   beforeEach(() => {
     account = new BankAccount();
   });
+
   it("displays the date, credit, debit and balance of the account on a statement", () => {
 
         account.deposit(1000, "10-01-2023");
@@ -171,22 +172,15 @@ describe("BankAccount error handling tests", () => {
     account = new BankAccount();
   });
 
-  it("Should not allow deposit of negative amount", () => {
-    expect(() => account.deposit(-100, "11-01-2023")).toThrowError(
-      "Deposit in bank account has not been made"
-    );
+  it("Bank account user should be informed when no money has been deposited into the account after attempt", () => {
+      expect(() => account.deposit(-100, "11-01-2023")).toThrowError("Deposit in bank account has not been made");
   });
-
-  it("Should not allow withdrawal of negative amount", () => {
-    expect(() => account.withdrawal(-100, "12-01-2023")).toThrowError(
-      "Withdrawal from bank account has not been made"
-    );
+  it("Bank account user should be informed when no money has been withdrawn from account after attempt", () => {
+        expect(() => account.withdrawal(-100, "12-01-2023")).toThrowError("Withdrawal from bank account has not been made");
   });
 
   it("Should not allow withdrawal of an amount greater than the current balance", () => {
-    expect(() => account.withdrawal(3000, "15-01-2023")).toThrowError(
-      "Amount greater than the current balance"
-    );
+    expect(() => account.withdrawal(3000, "15-01-2023")).toThrowError("Amount greater than the current balance");
   });
 
   it("Should display 'No transactions' when there are no transactions", () => {

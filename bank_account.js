@@ -40,7 +40,6 @@ class BankAccount {
             console.log(`${this.transactions[i].date} || ${credit} || ${debit} || ${balance}`);
         }
     }
-
 }
 
 const account = new BankAccount();
