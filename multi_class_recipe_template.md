@@ -165,7 +165,7 @@ describe("BankAccount", () => {
 ## 5. Edge Case Tests
 
 ```javascript
-describe("BankAccount error handling tests", () => {
+describe("BankAccount Edge Case tests", () => {
   let account;
 
   beforeEach(() => {
