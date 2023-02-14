@@ -143,7 +143,7 @@ describe("BankAccount", () => {
     account = new BankAccount();
   });
 
-  it("should display a transactions", () => {
+  it("should display transactions", () => {
     expect(account.transactions).toEqual([]);
   });
 
