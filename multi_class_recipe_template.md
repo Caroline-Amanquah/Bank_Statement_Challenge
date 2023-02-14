@@ -36,8 +36,8 @@ _Also design the interface of each class in more detail._
 ```javascript
 class Transaction {
     constructor(date, amount, balance) {
-    # each Transaction will have its own date, amount, and balance.
-    # the amount and balance will have a float data type and the date will use the Date() constructor which returns a string representation of the date and time.
+    // each Transaction will have its own date, amount, and balance.
+    // the amount and balance will have a float data type and the date will use the Date() constructor which returns a string representation of the date and time.
     }
 }
 
@@ -65,7 +65,7 @@ class BankAccount {
 }
 ```
 
-## 3. Create Examples as Integration Tests
+## 3. Integration Tests
 
 _Create examples of the classes being used together in different situations and
 combinations that reflect the ways in which the system will be used._
@@ -111,7 +111,7 @@ describe("BankAccount integration tests", () => {
 });
 ```
 
-## 4. Create Examples as Unit Tests
+## 4. Unit Tests
 
 _Create examples, where appropriate, of the behaviour of each relevant class._
 
@@ -162,7 +162,7 @@ describe("BankAccount", () => {
 });
 ```
 
-## 5. Create Examples as Edge Case Tests
+## 5. Edge Case Tests
 
 ```javascript
 describe("BankAccount error handling tests", () => {
