@@ -18,7 +18,7 @@ uses asciiflow.com but you could also use excalidraw.com, draw.io, or miro.com_
 │                            │
 └───────────┬────────────────┘
             │
-            │ makes transaction
+            │ makes Transaction with money in BankAccount.
             ▼
 ┌─────────────────────────┐
 │ BankAccount             │
