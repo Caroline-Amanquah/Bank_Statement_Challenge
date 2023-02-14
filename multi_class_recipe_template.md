@@ -44,7 +44,7 @@ class Transaction {
 class BankAccount {
    constructor() {
         this.transactions = [];
-        # empty array named transactions used to store the transactions that occur in the bank account
+        // empty array named transactions used to store the transactions that occur in the bank account
    }
 
    deposit(amount, date) {
