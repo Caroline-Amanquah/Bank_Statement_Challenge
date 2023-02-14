@@ -48,19 +48,19 @@ class BankAccount {
    }
 
    deposit(amount, date) {
-   # deposit method accepts two parameters: the amount of the deposit, and the date of the deposit.
-   # calculates the balance of the account after the deposit.
+   // deposit method accepts two parameters: the amount of the deposit, and the date of the deposit.
+   // calculates the balance of the account after the deposit.
    }
 
 
    withdrawal(amount, date) {
-   # withdrawal method accepts two parameters: the amount of the withdrawal, and the date of the withdrawal.
-   # calculates the balance of the account after the withdrawal.
+   // withdrawal method accepts two parameters: the amount of the withdrawal, and the date of the withdrawal.
+   // calculates the balance of the account after the withdrawal.
    }
 
 
    statement() {
-   # statement method generates a statement of the account's transactions, including the date of the transaction, the credit and  debit amount, and the account balance after the transaction.
+   // statement method generates a statement of the account's transactions, including the date of the transaction, the credit and  debit amount, and the account balance after the transaction.
    }
 }
 ```
